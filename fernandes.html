@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zinnia Fernandes | Portfolio</title>
+
+  <style>
+    /* 🌸 General Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f7f3;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    /* 🌸 Header */
+    header {
+      background: #bde0fe;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #003566;
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #444;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #001d3d;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #001d3d;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* 🌸 Section Styling */
+    section {
+      padding: 80px 60px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    h2 {
+      color: #0077b6;
+      margin-bottom: 20px;
+      font-size: 28px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #a2d2ff;
+      border-radius: 10px;
+    }
+
+    p {
+      color: #222;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* 🌸 Buttons */
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #a2d2ff;
+      color: #001d3d;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #bde0fe;
+      transform: translateY(-2px);
+    }
+
+    /* 🌸 About Section */
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+      text-align: left;
+    }
+
+    .about-photo {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-photo img {
+      width: 280px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .about-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 🌸 Skills Section */
+    .skills span {
+      display: inline-block;
+      background: #cdb4db;
+      color: #222;
+      padding: 10px 15px;
+      border-radius: 20px;
+      margin: 8px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: #bde0fe;
+      transform: scale(1.05);
+    }
+
+    /* 🌸 Work Section */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .work-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .work-card h3 {
+      margin: 15px 0 5px;
+      color: #003566;
+    }
+
+    .work-card p {
+      color: #444;
+      font-size: 15px;
+      padding: 0 15px 15px;
+    }
+
+    /* 🌸 Education */
+    .edu-list p {
+      background: #f8edeb;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 8px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* 🌸 Certificates */
+    .certificates-list p {
+      background: #e2ece9;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      color: #222;
+      font-weight: 500;
+    }
+
+    .certificates-list a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .certificates-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🌸 Gallery */
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .gallery-grid img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* 🌸 Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #a2d2ff;
+      color: #001d3d;
+      font-weight: 500;
+      box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Zinnia Fernandes</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home">
+    <h2>Hello, I'm Zinnia Fernandes</h2>
+    <p>
+      I'm pursuing a degree in Computer Engineering at Fr. Conceicao Rodrigues College of Engineering,
+      where I'm building a strong foundation in technology, problem-solving, and innovation.
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          I'm a Computer Engineering student (2025–2029) at Father Conceicao Rodrigues College of Engineering.
+          Driven by curiosity and creativity, I enjoy exploring new tools and technologies that transform
+          complex problems into elegant solutions.
+        </p>
+        <p>
+          I’m a quick learner, analytical thinker, and team player — always eager to grow and create something impactful.
+        </p>
+      </div>
+
+      <div class="about-photo">
+        <img src="c:\Users\1234f\Documents\me.jpg" alt="Zinnia Fernandes">
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>C Programming</span>
+      <span>HTML</span>
+      <span>Communication</span>
+      <span>Teamwork</span>
+      <span>Time Management</span>
+      <span>Creativity</span>
+      <span>Photography</span>
+      <span>Editing</span>
+    </div>
+  </section>
+
+  <!-- 💻 WORK -->
+  <section id="work">
+    <h2>My Work</h2>
+    <p>Here are a few projects I’ve worked on recently.</p>
+
+    <div class="work-grid">
+      <div class="work-card">
+        <img src="c:\Users\1234f\Documents\zinnia 3.jpg" alt="Project 1" style="width:300px; border-radius:10px;">
+        <h3>Trufo app</h3>
+        <p>A trufo app this app can identify whether a news article is fake or genuine made using HTML and CSS with pastel theme styling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-list">
+      <p>🎓 B.E. in Computer Engineering (2025–2029) – Fr. Conceicao Rodrigues College of Engineering, Bandra</p>
+      <p>📘 10th (SSC): 84.60%</p>
+      <p>📗 12th (HSC): 70%</p>
+      <p>📊 CET Percentile: 91.85</p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificates-row">
+      <img src="c:\Users\1234f\Documents\fer-4.jpg" alt="Gallery Image 1" style="width:300px; border-radius:10px;">
+      <img src="c:\Users\1234f\Documents\fer-5.jpg" alt="Gallery Image 2" style="width:300px; border-radius:10px;">
+      <img src="c:\Users\1234f\Documents\fer-6.jpg" alt="Gallery Image 3" style="width:300px; border-radius:10px;">
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="c:\Users\1234f\Documents\fer 1.jpg" alt="Gallery Image 1">
+      <img src="c:\Users\1234f\Documents\fer 3.jpg" alt="Gallery Image 2">
+      <img src="c:\Users\1234f\Documents\fer 2.jpg" alt="Gallery Image 3">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:zinniafernandes17@gmail.com">zinniafernandes17@gmail.com</a></p>
+    <p>Phone: 8857028267</p>
+    <p>Location: Vasai, Mumbai, Maharashtra</p>
+
+   <p>
+      <a href=https://www.linkedin.com/in/zinnia-fernandes-572a63385?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app<<Your LinkedIn URL>> class="btn">LinkedIn</a>
+      <a href=https://github.com/zinniafernandes17-design<Your GitHub URL>>" class="btn">GitHub</a>
+      <a href=https://www.instagram.com/<Your Instagram URL>>" class="btn">Instagram</a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Zinnia Fernandes — All Rights Reserved
+  </footer>
+</body>
+</html>
+
